@@ -1,0 +1,32 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="MapApplication.controller.Startpage"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Map Application">
+				<content>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Get Current Location"
+						subheader="Get Address" press="onToGetLocation">
+						<tileContent>
+							<TileContent footer="Google Maps">
+								<content>
+									<ImageContent src="sap-icon://map"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+				 
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Find Route"
+						subheader="Drawing route between two points in map" press="onToFindRoute">
+						<tileContent>
+							<TileContent footer="Google Maps">
+								<content>
+									<ImageContent src="sap-icon://map-2"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

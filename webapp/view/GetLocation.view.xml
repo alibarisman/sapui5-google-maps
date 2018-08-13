@@ -1,0 +1,83 @@
+<mvc:View 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" 
+	controllerName="MapApplication.controller.GetLocation"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:l="sap.ui.layout" 
+    xmlns:f="sap.ui.layout.form" 
+    xmlns:c="sap.ui.core" 
+    xmlns:gmaps="openui5.googlemaps">
+	<App>
+		<pages>
+			<Page 
+				title="Get Current Location"
+				showNavButton="true"
+				navButtonPress="onBack">
+				<content>
+					<f:Form
+		            	id="form1"
+		            	editable="true">
+		                <f:title>
+		                    <c:Title text="Google Map Search - Current Location"></c:Title>
+		                </f:title>
+		                <f:formContainers>
+		                    <f:FormContainer>
+		                        <f:formElements>
+		                            <f:FormElement>
+		                                <f:label>
+		                                    <Label text="Query Address" />
+		                                </f:label>
+		                                <f:fields>
+		                                    <Input id="query" showSuggestion="true" suggest="onSuggest" change="onChange">
+		                                    <layoutData>
+		                                        <l:GridData span="L4 M6 S12" />
+		                                    </layoutData>
+		                                    </Input>
+		                                    <Button text="Get My Location" press="onMyLocation">
+												<layoutData>
+													<l:GridData span="L2 M2 S12" />
+												</layoutData>
+											</Button>
+		                                </f:fields>
+		                            </f:FormElement>
+		                            <f:FormElement>
+		                                <f:label>
+		                                    <Label text="Latitiude / Longitude" />
+		                                </f:label>
+		                                <f:fields>
+		                                    <Input value="{lat}" editable="false">
+		                                    <layoutData>
+		                                        <l:GridData span="L2 M4 S8"></l:GridData>
+		                                    </layoutData>
+		                                    </Input>
+		                                    <Input value="{lng}" editable="false">
+		                                    <layoutData>
+		                                        <l:GridData span="L2 M4 S8"></l:GridData>
+		                                    </layoutData>
+		                                    </Input>
+		                                </f:fields>
+		                            </f:FormElement>
+		                            <f:FormElement>
+		                                <f:fields>
+		                                    <gmaps:Map mapTypeControl="true" zoom="12" language="tr" lat="{lat}" lng="{lng}" apiKey="AIzaSyD6EmAk92gaGzjYVYU-ebd_BK-rgejSoZ0" markers="{/places}" click="onClick">
+		                                        <gmaps:markers>
+		                                            <gmaps:Marker lat="{markerLat}" lng="{markerLng}" info="{name}" icon="{path:'name', formatter:'.getMarkerIcon'}" position="absolute" animation="0" draggable="false" dragEnd="onMarkerDragEnd" />
+		                                        </gmaps:markers>
+		                                        <gmaps:layoutData>
+		                                            <l:GridData span="L8 M12 S12"></l:GridData>
+		                                        </gmaps:layoutData>
+                                    		</gmaps:Map>
+		                                </f:fields>
+		                            </f:FormElement>
+		                        </f:formElements>
+		                    </f:FormContainer>
+		                </f:formContainers>
+		                <f:layout>
+		                    <f:ResponsiveGridLayout></f:ResponsiveGridLayout>
+		                </f:layout>
+		            </f:Form>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

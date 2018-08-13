@@ -1,0 +1,81 @@
+<mvc:View 
+	xmlns:c="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form" 
+	controllerName="MapApplication.controller.FindRoute"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:gmaps="openui5.googlemaps">
+	<App>
+		<pages>
+			<Page 
+				title="Find Route"
+				showNavButton="true"
+				navButtonPress="onBack"
+				enableScrolling="true">
+				<content>
+					<f:Form
+		            	id="form1"
+		            	editable="true">
+		                <f:title>
+		                    <c:Title text="Google Map Search - Search Route "></c:Title>
+		                </f:title>
+		                <f:formContainers>
+		                    <f:FormContainer>
+		                        <f:formElements>
+		                            <f:FormElement>
+		                                <f:label>
+		                                    <Label text="Start Address / End Address" />
+		                                </f:label>
+		                                <f:fields>
+		                                    <Input id="start" enabled="true" placeholder="Start Address">
+		                                    <layoutData>
+		                                        <l:GridData span="L3 M3 S8"></l:GridData>
+		                                    </layoutData>
+		                                    </Input>
+		                                    <Input id="end" enabled="true" placeholder="End Address">
+		                                    <layoutData>
+		                                        <l:GridData span="L3 M3 S8"></l:GridData>
+		                                    </layoutData>
+		                                    </Input>
+		                                </f:fields>
+		                            </f:FormElement>
+		                            <f:FormElement>
+							            <SegmentedButton selectionChange="select" id="idSegment">
+											<items>
+												<SegmentedButtonItem id="drivingBtn" text="Driving"/>
+												<SegmentedButtonItem id="walkingBtn" text="Walking"/>
+												<SegmentedButtonItem id="bicyclingBtn" text="Bicycling"/>
+												<SegmentedButtonItem id="transitBtn" text="Transit"/>
+											</items>
+											<layoutData>
+				                               <l:GridData span="L6 M10 S12"></l:GridData>
+				                            </layoutData>
+		   								</SegmentedButton>
+									</f:FormElement>
+		                            <f:FormElement>
+		                                <f:fields>
+		                                    <gmaps:Map id="map1" lat="41.0193271" lng="28.9956441" zoom="10" language="tr" zoomControl="true" apiKey="AIzaSyD6EmAk92gaGzjYVYU-ebd_BK-rgejSoZ0">
+								                 <gmaps:directions>
+								                     <gmaps:Directions startAddress="{start}" endAddress="{end}" unitSystem="1" waypoints="{stops}">
+								                         <gmaps:waypoints>
+								                             <gmaps:Waypoint location="{name}"></gmaps:Waypoint>
+								                         </gmaps:waypoints>
+								                     </gmaps:Directions>
+								                 </gmaps:directions>
+								            </gmaps:Map>
+		                                </f:fields>
+		                            </f:FormElement>
+		                        </f:formElements>
+		                    </f:FormContainer>
+		                </f:formContainers>
+		                <f:layout>
+		                    <f:ResponsiveGridLayout></f:ResponsiveGridLayout>
+		                </f:layout>
+		            </f:Form>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

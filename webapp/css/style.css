@@ -1,0 +1,24 @@
+.buttons {
+    position: absolute;
+    bottom: 30px;
+    left: 25px;
+    z-index: 100;
+}
+        
+.inputField {
+    display: block;
+}
+    
+#map1-map {
+    width: 100% !important;
+    height: 100% !important;
+    height: -webkit-calc(100% - 1px) !important;
+    height: -moz-calc(100% - 1px) !important;
+    height: calc(100% - 1px) !important;
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    top: 1px !important;
+    bottom: 1px !important;
+    overflow: hidden;
+}
